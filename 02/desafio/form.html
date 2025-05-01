@@ -4,11 +4,89 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+    
+        form {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+    
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+    
+        input[type="number"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+            font-size: 16px;
+            box-sizing: border-box; /* Para ajustar o padding dentro da largura total */
+        }
+    
+        button {
+            padding: 10px 20px;
+            margin-top: 15px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+        }
+    
+        button:hover {
+            background-color: #0056b3;
+        }
+    
+        /* Responsividade para telas menores */
+        @media (max-width: 768px) {
+            form {
+                padding: 20px;
+            }
+    
+            input[type="number"], button {
+                font-size: 14px;
+                padding: 8px;
+            }
+        }
+    
+        /* Extra responsividade para dispositivos muito pequenos */
+        @media (max-width: 480px) {
+            form {
+                padding: 15px;
+            }
+    
+            input[type="number"], button {
+                font-size: 12px;
+                padding: 6px;
+            }
+        }
+    </style>
+    
 </head>
 <body>
-    <h1>Digite seu salário:</h1>
+    <h1>Cálculo de Desconto do INSS</h1>
     <form action="./resultado.php" method="get">
-        Salário: <input type="number" name="salario">
+        <label for="salario">Digite seu salário:</label>
+        <input type="number" name="salario" min="1" step="0.01" required>
         <button type="submit">Ver Desconto</button>
     </form>
 </body>
