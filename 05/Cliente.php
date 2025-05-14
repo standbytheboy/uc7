@@ -27,7 +27,11 @@ class Cliente {
     }
     
     public function setTelefone(string $telefone){
-        $this->telefone = $telefone;
+        if(strlen($telefone) == 11) {
+            $this->telefone = $telefone;
+        } else {
+            echo "Telefone inválido <br>";
+        }
     }
 
     public function __toString()
