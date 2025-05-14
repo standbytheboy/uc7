@@ -29,6 +29,3 @@ class Pizza
         return "Pizza de $this->sabor e Preço R$: $this->preco";
     }
 }
-
-$p1 = new Pizza(1, "Calabresa", "Média", 30.00);
-echo ($p1);
