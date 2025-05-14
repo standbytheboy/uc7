@@ -16,16 +16,22 @@ class Produto
         return $this->nome;
     }
 
-    public function setNome(string $nome)
-    {
+    public function getPreco(): float {
+        return $this->preco;
+    }
+
+    public function setNome(string $nome){
         if (strlen($nome) > 2) {
             $this->nome = $nome;
         } else {
             throw (new Error("Invalid Name"));
-
         }
     }
 
+    public function __toString()
+    {
+        return "Nome: $this->nome, Preço: $this->preco <br>";
+    }
 }
 
 $p1 = new Produto("Abóbora", 5.2);
@@ -39,7 +45,7 @@ echo ($p1->getNome());
 echo "<br>";
 echo ($p1->setNome("Maçã"));
 echo "<br>";
-echo ($p1->getNome());
+echo ($p1->getNome() . " - " . $p1->getPreco());
 
 // $nome = 'Abobora';
 // $preco = 5.2;
