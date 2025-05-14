@@ -22,6 +22,9 @@ class Cliente {
     public function getNome() : string {
         return $this->nome;
     }
+    public function getTelefone() : string {
+        return $this->telefone;
+    }
     
     public function setTelefone(string $telefone){
         $this->telefone = $telefone;
@@ -32,3 +35,8 @@ class Cliente {
         return "Nome: $this->nome, Veículo: $this->veiculo, Telefone: $this->telefone <br>";
     }
 }
+
+$c1 = new Cliente('Lucas', 'Mustang GT Shelby', '11912345678');
+
+echo $c1->setTelefone('11987654321');
+echo $c1->getNome(). " - " .$c1->getTelefone();
