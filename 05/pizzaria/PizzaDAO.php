@@ -1,6 +1,6 @@
 <?php
 require 'Pizza.php';
-require 'Conexao.php';
+require 'Database.php';
 
 class PizzaDAO
 {
