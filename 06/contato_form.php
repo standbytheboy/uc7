@@ -3,9 +3,16 @@ require_once 'ContatoDAO.php';
 $dao = new ContatoDAO();
 $contatos = $dao->getAll();
 
-if(isset($_POST['name'])) {
+if (isset($_POST['name']) && ($_POST['phone']) && ($_POST['mail'])) {
     $name = $_POST['name'];
-    $contato = new Contato(null, $name);
+    $phone = $_POST['phone'];
+    $mail = $_POST['mail'];
+
+    $address = null;
+    if (isset($_POST['address'])) {
+        $address = $_POST['address'];
+    }
+    $contato = new Contato(null, $name, $phone, $mail, $address);
     $dao->create($contato);
 
     header("Location: index.php");
@@ -14,12 +21,12 @@ if(isset($_POST['name'])) {
 
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastrar Contato</title>
     <style>
-        /* Reset e base */
         * {
             margin: 0;
             padding: 0;
@@ -45,7 +52,7 @@ if(isset($_POST['name'])) {
             background-color: #fff;
             padding: 30px;
             border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
             width: 100%;
             max-width: 400px;
             display: flex;
@@ -98,12 +105,23 @@ if(isset($_POST['name'])) {
         }
     </style>
 </head>
+
 <body>
     <h2>Cadastrar Contato</h2>
     <form action="./contato_form.php" method="post">
         <label for="name">Nome</label>
-        <input type="text" name="name" id="name" required placeholder="Escreva seu nome...">
+        <input type="text" name="name" id="name" required placeholder="Digite seu nome...">
+
+        <label for="phone">Telefone</label>
+        <input type="text" name="phone" id="phone" required placeholder="Digite seu telefone...">
+
+        <label for="mail">Email</label>
+        <input type="email" name="mail" id="mail" required placeholder="Digite seu email...">
+
+        <label for="adress">Endereço</label>
+        <input type="text" name="adress" id="adress" placeholder="Digite seu endereço (opcional)">
         <button type="submit">Salvar</button>
     </form>
 </body>
+
 </html>

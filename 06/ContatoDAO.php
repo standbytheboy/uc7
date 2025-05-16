@@ -19,7 +19,7 @@ class ContatoDAO
 
         while($row = $stmt->fetch(PDO::FETCH_ASSOC))
         {
-            $contatos[] = new Contato($row['id'], $row['nome']);
+            $contatos[] = new Contato($row['id'], $row['nome'], $row['telefone'], $row['email'], $row['endereco']);
         }
 
         return $contatos;
@@ -27,12 +27,18 @@ class ContatoDAO
 
     public function create(Contato $contato) 
     {
-        $sql = "INSERT INTO contatos (nome) VALUES (:nome)";
+        $sql = "INSERT INTO contatos (nome, telefone, email, endereco) VALUES (:nome, :telefone, :email, :endereco)";
         $stmt = $this->db->prepare($sql);
 
         $nome = $contato->getName();
+        $telefone = $contato->getTelefone();
+        $email = $contato->getEmail();
+        $endereco = $contato->getEndereco();
 
         $stmt->bindParam(':nome', $nome);
+        $stmt->bindParam(':telefone', $telefone);
+        $stmt->bindParam(':email', $email);
+        $stmt->bindParam(':endereco', $endereco);
         $stmt->execute();
     }
 }
