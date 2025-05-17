@@ -65,7 +65,7 @@ if (isset($_POST['name']) && ($_POST['phone']) && ($_POST['mail'])) {
             color: #555;
         }
 
-        input[type="text"] {
+        input[type="text"], input[type="email"] {
             padding: 10px 14px;
             border: 1px solid #ccc;
             border-radius: 4px;
@@ -74,7 +74,7 @@ if (isset($_POST['name']) && ($_POST['phone']) && ($_POST['mail'])) {
             transition: border-color 0.3s ease;
         }
 
-        input[type="text"]:focus {
+        input[type="text"]:focus, input[type="email"]:focus {
             border-color: #0077cc;
             outline: none;
         }
@@ -118,10 +118,12 @@ if (isset($_POST['name']) && ($_POST['phone']) && ($_POST['mail'])) {
         <label for="mail">Email</label>
         <input type="email" name="mail" id="mail" required placeholder="Digite seu email...">
 
-        <label for="adress">Endereço</label>
-        <input type="text" name="adress" id="adress" placeholder="Digite seu endereço (opcional)">
+        <label for="address">Endereço</label>
+        <input type="text" name="address" id="address" placeholder="Digite seu endereço (opcional)">
         <button type="submit">Salvar</button>
     </form>
+    <a href="./index.php">Ver contatos</a>
+
 </body>
 
 </html>

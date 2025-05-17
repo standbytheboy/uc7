@@ -9,7 +9,7 @@ class ContatoDAO
 
     public function __construct()
     {
-        $this->db = Database::getInstance();        
+        $this->db = Database::getInstance();
     }
 
     public function getAll()
@@ -17,15 +17,30 @@ class ContatoDAO
         $stmt = $this->db->query("SELECT * FROM contatos");
         $contatos = []; // inicializa um array vazio
 
-        while($row = $stmt->fetch(PDO::FETCH_ASSOC))
-        {
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             $contatos[] = new Contato($row['id'], $row['nome'], $row['telefone'], $row['email'], $row['endereco']);
         }
 
         return $contatos;
     }
 
-    public function create(Contato $contato) 
+    public function getById(int $id): ?Contato
+    {
+        $stmt = $this->db->prepare("SELECT * FROM agenda.contatos WHERE id = :id");
+        $stmt->bindParam(":id", $id);
+        $stmt->execute();
+
+        $row = $stmt->fetch(PDO::FETCH_ASSOC); // só uma linha pq a pesquisa só retorna uma linha do db
+        return $row ? new Contato(
+            $row['id'],
+            $row['nome'],
+            $row['telefone'],
+            $row['email'],
+            $row['endereco']
+        )
+            : null;
+    }
+    public function create(Contato $contato)
     {
         $sql = "INSERT INTO contatos (nome, telefone, email, endereco) VALUES (:nome, :telefone, :email, :endereco)";
         $stmt = $this->db->prepare($sql);
