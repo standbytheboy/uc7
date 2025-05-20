@@ -1,27 +1,47 @@
 <?php
 require_once 'ContatoDAO.php';
 $dao = new ContatoDAO();
-$contatos = $dao->getAll();
+$contato = null; // Contato para a edição
 
-if (isset($_POST['name']) && ($_POST['phone']) && ($_POST['mail'])) {
-    $name = $_POST['name'];
-    $phone = $_POST['phone'];
-    $mail = $_POST['mail'];
+// Editar Contato
+if(isset($_GET['id'])) {
+    $contato = $dao->getById($_GET['id']);
+}
 
-    $address = null;
-    if (isset($_POST['address'])) {
-        $address = $_POST['address'];
+// Salvar Edição de Contato
+if(isset($_POST['id'])) {
+    $endereco = null;
+    if(isset($_POST['endereco']))
+    {
+        $endereco = $_POST['endereco'];
     }
-    $contato = new Contato(null, $name, $phone, $mail, $address);
+
+    $contato = new Contato($_POST['id'], $_POST['nome'], $_POST['telefone'], $_POST['email'], $endereco);
+    $dao->update($contato);
+
+    header("Location: index.php");
+    exit;
+}
+
+// Criar novo Contato
+if(isset($_POST['nome']) && isset($_POST['telefone']) && isset($_POST['email']))
+{
+    $endereco = null;
+    if(isset($_POST['endereco']))
+    {
+        $endereco = $_POST['endereco'];
+    }
+
+    $contato = new Contato(null, $_POST['nome'], $_POST['telefone'], $_POST['email'], $endereco);
     $dao->create($contato);
 
     header("Location: index.php");
 }
+
 ?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -65,7 +85,8 @@ if (isset($_POST['name']) && ($_POST['phone']) && ($_POST['mail'])) {
             color: #555;
         }
 
-        input[type="text"], input[type="email"] {
+        input[type="text"],
+        input[type="email"] {
             padding: 10px 14px;
             border: 1px solid #ccc;
             border-radius: 4px;
@@ -74,7 +95,8 @@ if (isset($_POST['name']) && ($_POST['phone']) && ($_POST['mail'])) {
             transition: border-color 0.3s ease;
         }
 
-        input[type="text"]:focus, input[type="email"]:focus {
+        input[type="text"]:focus,
+        input[type="email"]:focus {
             border-color: #0077cc;
             outline: none;
         }
@@ -105,25 +127,28 @@ if (isset($_POST['name']) && ($_POST['phone']) && ($_POST['mail'])) {
         }
     </style>
 </head>
-
 <body>
-    <h2>Cadastrar Contato</h2>
-    <form action="./contato_form.php" method="post">
-        <label for="name">Nome</label>
-        <input type="text" name="name" id="name" required placeholder="Digite seu nome...">
+    <h2><?= $contato? "Editar Contato" : "Cadastrar Novo Contato" ?></h2>
 
-        <label for="phone">Telefone</label>
-        <input type="text" name="phone" id="phone" required placeholder="Digite seu telefone...">
+    <form action="contato_form.php" method="post">
+        <?php if ($contato): ?>
+            <input type="hidden" name="id" value="<?= $contato->getId() ?>">
+        <?php endif; ?>
 
-        <label for="mail">Email</label>
-        <input type="email" name="mail" id="mail" required placeholder="Digite seu email...">
+        <label>Nome:</label>
+        <input type="text" name="nome" required value="<?= $contato? $contato->getName() : ''?>"><br>
 
-        <label for="address">Endereço</label>
-        <input type="text" name="address" id="address" placeholder="Digite seu endereço (opcional)">
+        <label>Telefone:</label>
+        <input type="text" name="telefone" required value="<?= $contato? $contato->getTelefone() : ''?>"><br>
+
+        <label>Email:</label>
+        <input type="text" name="email" required value="<?= $contato? $contato->getEmail() : ''?>"><br>
+
+        <label>Endereço:</label>
+        <input type="text" name="endereco" value="<?= $contato? $contato->getEndereco() : ''?>"><br>
+
         <button type="submit">Salvar</button>
+        <a href="index.php">Cancelar</a>
     </form>
-    <a href="./index.php">Ver contatos</a>
-
 </body>
-
 </html>

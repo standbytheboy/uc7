@@ -57,6 +57,24 @@ class ContatoDAO
         $stmt->execute();
     }
 
+    public function update(Contato $contato) {
+        $sql = "UPDATE contatos SET nome = :nome, telefone = :telefone, email = :email, endereco = :endereco where id = :id";
+        
+        $id = $contato->getId();
+        $nome = $contato->getName();
+        $telefone = $contato->getTelefone();
+        $email = $contato->getEmail();
+        $endereco = $contato->getEndereco();
+        
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindParam("id", $id);
+        $stmt->bindParam("nome", $nome);
+        $stmt->bindParam("telefone", $telefone);
+        $stmt->bindParam("email", $email);
+        $stmt->bindParam("endereco", $endereco);
+        $stmt->execute();
+    }
+
     public function delete(int $id): void {
         $stmt = $this->db->prepare('DELETE FROM contatos WHERE id = :id');
         $stmt->bindParam(":id", $id);
