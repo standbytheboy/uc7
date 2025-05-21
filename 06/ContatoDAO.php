@@ -15,7 +15,7 @@ class ContatoDAO
     public function getAll()
     {
         $stmt = $this->db->query("SELECT * FROM contatos");
-        $contatos = []; // inicializa um array vazio
+        $contatos = []; // inicializa um array vazio    
 
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             $contatos[] = new Contato($row['id'], $row['nome'], $row['telefone'], $row['email'], $row['endereco']);
