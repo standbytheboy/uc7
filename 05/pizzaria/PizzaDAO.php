@@ -27,7 +27,7 @@ class PizzaDAO
         return $pizzas;
     }
 
-    public function getPizzaById(int $id) {
+    public function getById(int $id) {
         $stmt = $this->db->prepare("SELECT * FROM pizza WHERE id = :id");
         $stmt->bindParam("id", $id);
         $stmt->execute();

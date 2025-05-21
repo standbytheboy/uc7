@@ -2,8 +2,8 @@
 
 require 'PizzaDAO.php';
 
-$bd = new PizzaDAO();
-$pizzas = $bd->getPizzas();
+$dao = new PizzaDAO();
+$pizzas = $dao->getAll();
 
 ?>
 
