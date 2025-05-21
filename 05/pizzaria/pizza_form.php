@@ -20,7 +20,7 @@ if (isset($_POST['id'])) {
 }
 
 // criar nova pizza
-if(isset($_POST['sabor']) && isset($_POST['tamanho']) && isset($_POST['preco'])) {
+if (isset($_POST['sabor']) && isset($_POST['tamanho']) && isset($_POST['preco'])) {
     $sabor = $_POST['sabor'];
     $tamanho = $_POST['tamanho'];
     $preco = $_POST['preco'];
@@ -36,30 +36,35 @@ if(isset($_POST['sabor']) && isset($_POST['tamanho']) && isset($_POST['preco']))
 
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Cadastrar Pizza</title>
 </head>
+
 <body>
-<h2><?= $pizzaEdit? "Editar Pizza" : "Cadastrar Nova Pizza" ?></h2>
+    <h2><?= $pizzaEdit ? "Editar Pizza" : "Cadastrar Nova Pizza" ?></h2>
 
     <form action="pizza_form.php" method="post">
         <?php if ($pizzaEdit): ?>
             <input type="hidden" name="id" value="<?= $pizzaEdit->getId() ?>">
         <?php endif; ?>
         <label>Sabor:</label>
-        <input type="text" name="sabor" required value="<?= $pizzaEdit? $pizzaEdit->getSabor() : null ?>">
+        <input type="text" name="sabor" required value="<?= $pizzaEdit ? $pizzaEdit->getSabor() : null ?>">
 
         <label>Tamanho:</label>
-        <input type="text" name="tamanho" required value="<?= $pizzaEdit? $pizzaEdit->getTamanho() : null ?>">
+        <input type="text" name="tamanho" required value="<?= $pizzaEdit ? $pizzaEdit->getTamanho() : null ?>">
 
-        <label>Preco:</label>
-        <input type="number" name="preco" required value="<?= $pizzaEdit? $pizzaEdit->getPreco() : null ?>">
+        <label>Preço:</label>
+        <input type="number" name="preco" step="0.01" required value="<?= $pizzaEdit ? $pizzaEdit->getPreco() : null ?>">
 
-        <button type="submit">Salvar:</button>
+
+        <button type="submit">Salvar</button>
     </form>
     <br>
     <a href="index.php">Cancelar</a>
 </body>
+
 </html>
