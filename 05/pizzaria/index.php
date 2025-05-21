@@ -1,7 +1,6 @@
 <?php
 
 require 'PizzaDAO.php';
-
 $dao = new PizzaDAO();
 $pizzas = $dao->getAll();
 
@@ -25,11 +24,13 @@ $pizzas = $dao->getAll();
                 <td><?= $p->getSabor() ?></td>
                 <td><?= $p->getTamanho() ?></td>
                 <td><?= $p->getPreco() ?></td>
+                <td><a href="./pizza_form.php?id=<?= $p->getId() ?>">Editar Pizza</a></td>
+                
             </tr>
         <?php endforeach; ?>
     </table>
 
     <br>
-    <a href="./pizza_form.php">Cadastrar Nova Pizza</a>
+    <a href="./pizza_form.php">Nova Pizza</a><br>
 </body>
 </html>

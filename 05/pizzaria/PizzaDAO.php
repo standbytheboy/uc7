@@ -49,7 +49,7 @@ class PizzaDAO
     }
 
     public function update(Pizza $pizza) { 
-        $sql = "UPDATE pizza SET sabor = :sabor, tamanho = :tamanho, preco = :preco";
+        $sql = "UPDATE pizza SET sabor = :sabor, tamanho = :tamanho, preco = :preco WHERE id = :id";
 
         $id = $pizza->getId();
         $sabor = $pizza->getSabor();
