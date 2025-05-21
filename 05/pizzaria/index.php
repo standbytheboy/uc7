@@ -25,6 +25,7 @@ $pizzas = $dao->getAll();
                 <td><?= $p->getTamanho() ?></td>
                 <td><?= $p->getPreco() ?></td>
                 <td><a href="./pizza_form.php?id=<?= $p->getId() ?>">Editar Pizza</a></td>
+                <td><a href="./pizza_delete.php?id=<?= $p->getId() ?>">Excluir Pizza</a></td>
                 
             </tr>
         <?php endforeach; ?>
