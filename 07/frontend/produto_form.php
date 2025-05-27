@@ -56,7 +56,7 @@ if ($_POST) {
         <input type="number" name="preco" step="0.01" required value="<?= $produto ? $produto->getPreco() : '' ?>"><br>
 
         <label>Ativo:</label>
-        <input type="checkbox" name="ativo" value="<?= $produto && $produto->getAtivo() ? 'checked' : '' ?>"><br>
+        <input type="checkbox" name="ativo" value="1" <?= $produto && $produto->getAtivo() ? 'checked' : '' ?>><br>
 
         <label>Data de Cadastro:</label>
         <input type="date" name="dataDeCadastro" required value="<?= $produto ? $produto->getDataDeCadastro() : '' ?>"><br>
