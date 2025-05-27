@@ -15,7 +15,7 @@ if ($_POST) {
     $preco = $_POST['preco'];
     $ativo = $_POST['ativo'] ? true : false;
     $dataDeCadastro = $_POST['dataDeCadastro'];
-    $dataDeValidade = $_POST['dataDeValidade'] ?: null; // ?:
+    $dataDeValidade = $_POST['dataDeValidade'] ?: null; // ?: ou ??
 
     $produto = new Produto($id, $nome, $preco, $ativo, $dataDeCadastro, $dataDeValidade);
 
@@ -37,7 +37,7 @@ if ($_POST) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <title>Formulario de Produto</title> -->
+    <link rel="stylesheet" href="../style.css">
     <title><?= $produto ? 'Edição de Produto' : 'Cadastro de Produto' ?></title>
 </head>
 
