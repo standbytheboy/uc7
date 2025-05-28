@@ -63,17 +63,17 @@ class ProdutoDAO
         ]);
     }
 
-    public function createInseguro(Produto $produto): void
-    {
-        $sql = "INSERT INTO produtos (nome, preco, ativo, dataDeCadastro, dataDeValidade) VALUES
-            ({$produto->getNome()}, 
-            {$produto->getPreco()}, 
-            {$produto->getAtivo()},
-            '{$produto->getDataDeCadastro()}', 
-            '{$produto->getDataDeValidade()}')";
+    // public function createInseguro(Produto $produto): void
+    // {
+    //     $sql = "INSERT INTO produtos (nome, preco, ativo, dataDeCadastro, dataDeValidade) VALUES
+    //         ({$produto->getNome()}, 
+    //         {$produto->getPreco()}, 
+    //         {$produto->getAtivo()},
+    //         '{$produto->getDataDeCadastro()}', 
+    //         '{$produto->getDataDeValidade()}')";
 
-        $this->db->query($sql);
-    }
+    //     $this->db->query($sql);
+    // }
 
     public function update(Produto $produto): void
     {

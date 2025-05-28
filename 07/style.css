@@ -1,97 +1,109 @@
-/* Reset básico */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* Fonte e fundo padrão */
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #f9f9f9;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    padding: 30px;
     color: #333;
-    padding: 20px;
 }
 
-/* Títulos */
-h1, h2, h3, h4, h5, h6 {
-    color: #222;
-    margin-bottom: 10px;
+h2 {
+    color: #0056b3;
+    border-bottom: 2px solid #0056b3;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
 }
 
-/* Links */
-a {
-    color: #0077cc;
-    text-decoration: none;
+form {
+    background-color: #fff;
+    max-width: 500px;
+    padding: 25px 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-a:hover {
-    text-decoration: underline;
-}
-
-/* Formulários */
 label {
-    display: inline-block;
-    margin-bottom: 5px;
+    display: block;
+    margin-top: 15px;
     font-weight: bold;
 }
 
-input, select, textarea {
-    padding: 6px 10px;
+input[type="text"],
+input[type="number"],
+input[type="date"] {
+    width: 100%;
+    padding: 8px 10px;
+    margin-top: 5px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    width: 100%;
-    max-width: 400px;
-    margin-bottom: 15px;
-    font-size: 14px;
+    box-sizing: border-box;
 }
 
 input[type="checkbox"] {
-    width: auto;
+    margin-top: 10px;
 }
 
-button, input[type="submit"] {
-    background-color: #0077cc;
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #0056b3;
     color: white;
     border: none;
-    padding: 8px 16px;
     border-radius: 4px;
     cursor: pointer;
+    font-weight: bold;
 }
 
-button:hover, input[type="submit"]:hover {
-    background-color: #005fa3;
+button:hover {
+    background-color: #003d80;
 }
 
-/* Tabelas */
+a {
+    display: inline-block;
+    margin: 10px 0;
+    padding: 8px 16px;
+    background-color: #0056b3;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+a:hover {
+    background-color: #003d80;
+}
+
 table {
-    border-collapse: collapse;
     width: 100%;
-    margin-bottom: 20px;
-    background-color: white;
+    border-collapse: collapse;
+    margin-top: 15px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    border-radius: 6px;
+    overflow: hidden;
 }
 
-th, td {
-    text-align: left;
-    padding: 10px;
-    border: 1px solid #ccc;
-}
-
-th {
-    background-color: #0077cc;
+table thead {
+    background-color: #0056b3;
     color: white;
 }
 
-tr:nth-child(even) {
-    background-color: #f2f2f2;
+table th,
+table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
 }
 
-/* Containers */
-form {
-    background-color: white;
-    padding: 20px;
-    border-radius: 6px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    max-width: 600px;
+table tr:hover {
+    background-color: #f1f1f1;
 }
 
+td a {
+    background-color: transparent;
+    color: #0056b3;
+    padding: 0;
+    margin-right: 10px;
+}
+
+td a:hover {
+    text-decoration: underline;
+}
