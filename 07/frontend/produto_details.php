@@ -15,7 +15,7 @@ if(!$produto) {
     exit;
 }
 ?>
-<link rel="stylesheet" href="details.css">
+<link rel="stylesheet" href="./details.css">
 <h2>Detalhes do Produto</h2>
 <ul>
     <li><strong>ID: </strong><?= $produto->getId() ?></li>
