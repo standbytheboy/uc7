@@ -42,11 +42,28 @@ switch ($action)
             echo json_encode(['error' => 'Erro ao cadastrar o cliente']);
         }
     }
-        else { http_response_code(400); echo json_encode(['error' => 'ID não fornecido ou método incorreto']); }
+        else { http_response_code(400); echo json_encode(['error' => 'Dados não fornecidos ou método incorreto']); }
         break;
 
     case 'atualizar':
-        echo json_encode("Chamou o atualizar");
+        if ($_SERVER['REQUEST_METHOD'] == 'PUT' && $inputData && $id) {
+            $cliente = new Cliente(
+                $id,
+                ($inputData['nome'] ?? ''),
+                ($inputData['cpf'] ?? ''),
+                ($inputData['active'] ?? ''),
+                ($inputData['birthDate'] ?? '')
+            ); 
+            
+            if ($dao->update($cliente)) {
+                http_response_code(204);
+                echo json_encode(['message' => 'Cliente atualizado com sucesso!']);
+            } else {
+                http_response_code(500);
+                echo json_encode(['error' => 'Erro ao atualizar o cliente']);
+            }
+        }
+        else { http_response_code(400); echo json_encode(['error' => 'ID não fornecido ou método incorreto']); }
         break;
 
     case 'excluir':
