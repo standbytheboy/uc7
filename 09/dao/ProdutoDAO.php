@@ -14,7 +14,7 @@ class ProdutoDAO
         $produtosData = $stmt->fetchAll(); // setando o fetchAll para não ter que declarar diversas vezes depois, ou na linha acima
         $produtos = [];
         foreach($produtosData as $data) {
-            $produtos[] = new Produto($data['nome'], $data['preco'], $data['ativo'], $data['dataDeCadastro'], $data['dataDeValidade']);
+            $produtos[] = new Produto($data['id'], $data['nome'], $data['preco'], $data['ativo'], $data['dataDeCadastro'], $data['dataDeValidade']);
         }
         
         return $produtos;
@@ -41,7 +41,7 @@ class ProdutoDAO
         return $stmt->execute(
             [
                 ':nome' => $produto->getNome(),
-                ':cpf' => $produto->getPreco(),
+                ':preco' => $produto->getPreco(),
                 ':ativo' => $produto->getAtivo() ? 1 : 0,
                 ':dataDeCadastro' => $produto->getDataDeCadastro(),
                 ':dataDeValidade' => $produto->getDataDeValidade()
@@ -60,7 +60,7 @@ class ProdutoDAO
             [
                 ':id' => $produto->getId(),
                 ':nome' => $produto->getNome(),
-                ':cpf' => $produto->getPreco(),
+                ':preco' => $produto->getPreco(),
                 ':ativo' => $produto->getAtivo() ? 1 : 0,
                 ':dataDeCadastro' => $produto->getDataDeCadastro(),
                 ':dataDeValidade' => $produto->getDataDeValidade()

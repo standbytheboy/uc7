@@ -30,17 +30,19 @@ switch ($action) {
         if ($_SERVER["REQUEST_METHOD"] == "POST" && $inputData) {
             $produto = new Produto(
                 ($inputData['id'] ?? null),
+                ($inputData['nome'] ?? null),
                 ($inputData['preco'] ?? null),
                 ($inputData['ativo'] ?? null),
                 ($inputData['dataDeCadastro'] ?? null),
                 ($inputData['dataDeValidade'] ?? null)
             );
-        }
 
-        if($dao->create($produto)) {
-            http_response_code(200); echo json_encode(['message'=> 'Cliente Cadastrado com Sucesso']); }
-        else {
-            http_response_code(500); echo json_encode(['error'=> 'Erro ao Cadastrar o Cliente']); }
+            if($dao->create($produto)) {
+                http_response_code(200); echo json_encode(['message'=> 'Produto Cadastrado com Sucesso']); }
+            else {
+                http_response_code(500); echo json_encode(['error'=> 'Erro ao Cadastrar o Produto']); }
+        } else { http_response_code(400); echo json_encode(['error'=> 'Dados não fornecidos ou método incorreto.']); }
+
     break;
 
     case 'atualizar': 
@@ -55,8 +57,8 @@ switch ($action) {
             );
 
             if($dao->update($produto)) {
-                http_response_code(204); echo json_encode(['message'=> 'Cliente Atualizado Com Sucesso!']); 
-            } else { http_response_code(500); echo json_encode(['error' => 'Erro ao Atualizar o Cliente']); }
+                http_response_code(204); echo json_encode(['message'=> 'Produto Atualizado Com Sucesso!']); 
+            } else { http_response_code(500); echo json_encode(['error' => 'Erro ao Atualizar o Produto']); }
         }
         else { http_response_code(400); echo json_encode(['error'=> 'ID não fornecido ou método incorreto']); }
     break;
