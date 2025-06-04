@@ -156,7 +156,7 @@ if (document.getElementById('formCliente')) {
     });
 }
 
-const apiUrlProdutos = 'http://10.24.90.15/venda/api/produtos_api.php'; // Ajuste se necessário
+const apiUrlProdutos = 'http://localhost/uc7/09/api/produtos_api.php'; // Ajuste se necessário
 
 // --- LÓGICA PARA produtos.html ---
 if (document.getElementById('tabelaProdutos')) {
