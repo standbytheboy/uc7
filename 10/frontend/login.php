@@ -47,6 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     Senha: <input type="password" name="senha" required><br>
     <button type="submit">Entrar</button>
 </form>
+<a href="cadastro.php">Não tem conta? Crie agora</a>
 
 </body>
 </html>

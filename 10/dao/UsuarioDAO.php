@@ -37,4 +37,12 @@ class UsuarioDAO {
             ]
         );
     }
+
+    public function getByToken (string $token): ?Usuario {
+        $stmt = $this->db->prepare('SELECT * FROM usuario WHERE token = :token');
+        $stmt->execute([':token' => $token]);
+        $data = $stmt->fetch();
+
+        return $data ? new Usuario($data['id'], $data['nome'], $data['email'], $data['senha'], $data['token']) : null;
+    }
 }
