@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once '../dao/UsuarioDAO.php';
 require_once '../model/Usuario.php';
 
@@ -63,6 +64,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <button type="submit">Cadastrar</button>
 </form>
 
-<a href="#">Já tem conta?</a>
+<a href="login.php">Já tem conta?</a>
 </body>
 </html>
