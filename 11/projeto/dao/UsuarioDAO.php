@@ -1,7 +1,7 @@
 <?php
 
-require_once '../core/Database.php';
-require_once '../model/Usuario.php';
+require_once './core/Database.php';
+require_once './model/Usuario.php';
 
 class UsuarioDAO {
     private $db;
@@ -34,5 +34,12 @@ class UsuarioDAO {
             ':id'=> $id
             ]
         );
+    }
+    public function getByEmail (string $email): ?Usuario {
+        $stmt = $this->db->prepare('SELECT * FROM usuario WHERE email = :email');
+        $stmt->execute([':email' => $email]);
+        $data = $stmt->fetch();
+
+        return $data ? new Usuario($data['id'], $data['nome'], $data['email'], $data['senha'], $data['token']) : null;
     }
 }

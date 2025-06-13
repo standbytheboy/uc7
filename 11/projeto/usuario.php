@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once("../dao/UsuarioDAO.php");
+require_once "./dao/UsuarioDAO.php";
 if (!isset($_SESSION["token"])) {
     header("Location: index.php");
     exit();
