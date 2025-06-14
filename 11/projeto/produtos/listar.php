@@ -51,7 +51,7 @@ $products = $dao->getAll(); // Renomeado para $products para melhor clareza no p
                     <td><?php echo $produto->getAtivo() ? 'Sim' : 'Não'; ?></td>
                     <td>
                         <!-- Links para ações de editar e excluir -->
-                        <a href="produto-form.html?id=<?php echo htmlspecialchars($produto->getId()); ?>" class="edit-button">Editar</a>
+                        <a href="criar.php?id=<?php echo htmlspecialchars($produto->getId()); ?>" class="edit-button">Editar</a>
                         <a href="excluir.php?id=<?php echo htmlspecialchars($produto->getId()); ?>" class="delete-button" onclick="return confirm('Tem certeza que deseja excluir este produto?');">Excluir</a>
                     </td>
                 </tr>
