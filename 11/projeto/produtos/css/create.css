@@ -1,0 +1,145 @@
+/* Importa a fonte Inter do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f4f7f6; /* Cor de fundo suave */
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza o conteúdo horizontalmente */
+    justify-content: center; /* Centraliza o conteúdo verticalmente */
+    min-height: 100vh; /* Garante que o body ocupe a altura total da viewport */
+}
+
+h1 {
+    color: #2c3e50;
+    margin-bottom: 30px; /* Mais espaço abaixo do título */
+    font-size: 2.2em; /* Tamanho maior para o título */
+    font-weight: 700; /* Negrito */
+    text-align: center;
+}
+
+/* Estilo geral para o formulário */
+form {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 12px; /* Cantos mais arredondados */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* Sombra mais pronunciada */
+    width: 100%;
+    max-width: 500px; /* Largura máxima para o formulário */
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espaçamento entre os elementos do formulário */
+}
+
+label {
+    display: block; /* Garante que o label ocupe uma linha inteira */
+    margin-bottom: 5px;
+    font-weight: 600; /* Mais destaque para o label */
+    color: #374151; /* Cor de texto mais escura */
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #d1d5db; /* Borda suave */
+    border-radius: 8px; /* Cantos arredondados */
+    font-size: 1em;
+    color: #374151;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05); /* Sombra interna sutil */
+    transition: border-color 0.2s ease, box-shadow 0.2s ease; /* Transição suave no foco */
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="date"]:focus {
+    outline: none; /* Remove o outline padrão do navegador */
+    border-color: #3b82f6; /* Borda azul no foco */
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25); /* Anel de foco azul suave */
+}
+
+/* Estilo para o checkbox 'Ativo' */
+input[type="checkbox"] {
+    width: auto; /* Permite que o checkbox tenha largura natural */
+    margin-right: 10px; /* Espaçamento à direita do checkbox */
+    transform: scale(1.2); /* Aumenta um pouco o tamanho do checkbox */
+    accent-color: #3b82f6; /* Cor do checkbox (Chrome/Edge) */
+}
+
+/* Estilo para a mensagem de erro */
+p[style*='color: red'] { /* Seleciona a tag <p> que tem style='color: red' */
+    color: #ef4444; /* Vermelho mais forte */
+    background-color: #fef2f2; /* Fundo vermelho bem claro */
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ef4444;
+    margin-top: 15px;
+    text-align: center;
+    font-size: 0.9em;
+    font-weight: 500;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 15px;
+    background-color: #2563eb; /* Azul-600 */
+    color: white;
+    font-weight: 700;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 10px; /* Espaço acima do botão */
+    font-size: 1.1em;
+}
+
+button[type="submit"]:hover {
+    background-color: #1d4ed8; /* Azul-700 no hover */
+    transform: translateY(-2px); /* Efeito de levantar no hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Sombra mais forte no hover */
+}
+
+/* Estilo para o link "Cancelar" */
+a[href="listar.php"] {
+    display: block; /* Ocupa a largura total */
+    text-align: center;
+    margin-top: 25px; /* Mais espaço acima do link */
+    color: #6b7280; /* Cinza suave */
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+    padding: 10px; /* Adiciona padding para facilitar o clique */
+}
+
+a[href="listar.php"]:hover {
+    color: #1f2937; /* Cinza escuro no hover */
+    text-decoration: underline; /* Sublinha no hover */
+}
+
+/* Responsividade básica para telas menores */
+@media (max-width: 600px) {
+    body {
+        padding: 15px;
+    }
+    form {
+        padding: 25px;
+    }
+    h1 {
+        font-size: 1.8em;
+        margin-bottom: 25px;
+    }
+    input, button {
+        padding: 10px;
+    }
+    button[type="submit"] {
+        font-size: 1em;
+    }
+    a[href="listar.php"] {
+        font-size: 0.9em;
+    }
+}

@@ -34,11 +34,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="css/create.css">
     <title>Cadastro de Produtos</title>
 </head>
 <body>
-<h1>Cadastro</h1>
+<h1>Cadastrar Produto</h1>
 
 <form action="" method="POST">
     <label for="name">Nome:</label>
