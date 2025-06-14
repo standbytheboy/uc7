@@ -1,6 +1,6 @@
 <?php
-require_once __DIR__ . '/../model/Produto.php';
-require_once __DIR__ . '/../Database.php';
+require_once '../core/Database.php';
+require_once '../model/Produto.php';
 
 class ProdutoDAO
 {
