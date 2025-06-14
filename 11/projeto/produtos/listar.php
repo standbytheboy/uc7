@@ -154,11 +154,11 @@ $products = $dao->getAll(); // Renomeado para $products para melhor clareza no p
 </head>
 <body>
     <h1>Lista de Produtos</h1>
-    <?php if (empty($products)) { // Usar empty para verificar se o array está vazio
-        echo "<p>Não há produtos cadastrados.</p>"; // Usar tag <p> para melhor semântica
+    <?php if (empty($products)) {
+        echo "<p>Não há produtos cadastrados.</p>";
     } ?>
     <br>
-    <a href="produto-form.html" class="button">Novo Produto</a>
+    <a href="criar.php" class="button">Novo Produto</a>
     <div id="mensagem"></div>
     <table>
         <thead>
