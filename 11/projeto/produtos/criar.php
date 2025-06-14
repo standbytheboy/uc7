@@ -6,6 +6,11 @@ require_once '../model/Produto.php';
 $dao = new ProdutoDAO();
 $product = null;
 
+if (!isset($_SESSION["token"])) {
+    echo "Faça login";
+    exit();
+}
+
 if (isset($_GET['id'])) {
     $product = $dao->getById($_GET['id']);
 }

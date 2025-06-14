@@ -3,13 +3,9 @@ session_start();
 require_once "../dao/ProdutoDAO.php";
 require_once "../model/Produto.php";
 
-if (!isset($_SESSION["token"])) {
-    header("Location: index.php");
-    exit();
-}
 
 $dao = new ProdutoDAO();
-$products = $dao->getAll(); // Renomeado para $products para melhor clareza no plural
+$products = $dao->getAll();
 ?>
 
 <!DOCTYPE html>
