@@ -17,8 +17,19 @@ if(!$user)
 }
 ?>
 
-<h1>Minha Conta</h1>
-
-<p>Nome: <?= $user->getNome() ?></p>
-<p>Email: <?= $user->getEmail() ?></p>
-<a href="index.php">Voltar</a>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Minha Conta</h1>
+    
+    <p><strong>Nome: </strong><?= $user->getNome() ?></p>
+    <p><strong>Email: </strong><?= $user->getEmail() ?></p>
+    <a href="index.php">Voltar</a>
+</body>
+</html>

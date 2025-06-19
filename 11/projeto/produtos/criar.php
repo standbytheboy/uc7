@@ -55,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/create.css">
+    <link rel="stylesheet" href="css/style.css">
     <title><?= $product ? 'Edição de Produto' : 'Cadastro de Produto' ?></title>
 </head>
 

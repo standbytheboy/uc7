@@ -20,6 +20,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     {
         $token = bin2hex(random_bytes(25)); // gera um token a cada nova sessão
         $_SESSION['token'] = $token;
+        $_SESSION['nome_usuario'] = $usuario->getNome();
+
         $dao->updateToken($usuario->getId(), $token);
         header('Location: index.php');
         exit();

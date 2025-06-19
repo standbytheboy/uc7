@@ -1,82 +1,153 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    margin: 0;
+    background-color: #f0f2f5;
+    color: #333;
+    line-height: 1.6;
+    overflow: hidden;
 }
 
 h1 {
-    color: #333;
+    color: #2c3e50;
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
+    font-size: 2.8em;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.08);
+}
+
+.user-greeting {
+    color: #2980b9;
+    font-size: 1.8em;
+    margin-bottom: 30px;
+}
+
+.user-greeting em {
+    font-weight: bold;
+    color: #34495e; 
 }
 
 form {
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 400px;
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    width: 90%;
+    max-width: 450px;
     display: flex;
     flex-direction: column;
+    gap: 15px;
 }
 
 label {
-    margin-bottom: 8px;
+    margin-bottom: 5px;
     color: #555;
-    font-weight: bold;
+    font-weight: 600;
+    font-size: 1.05em;
 }
 
 input[type="text"],
 input[type="email"],
 input[type="password"] {
-    width: calc(100% - 20px);
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 16px;
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    font-size: 17px;
+    color: #333;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    box-sizing: border-box;
 }
 
 input[type="text"]:focus,
 input[type="email"]:focus,
 input[type="password"]:focus {
-    border-color: #007bff;
+    border-color: #3498db;
     outline: none;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
 }
 
 button[type="submit"] {
-    background-color: #007bff;
+    background-color: #3498db;
     color: white;
-    padding: 12px 20px;
+    padding: 14px 25px;
     border: none;
-    border-radius: 4px;
+    border-radius: 8px;
     cursor: pointer;
-    font-size: 18px;
-    font-weight: bold;
-    margin-top: 10px;
-    transition: background-color 0.3s ease;
+    font-size: 19px;
+    font-weight: 700;
+    margin-top: 20px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    letter-spacing: 0.5px;
 }
 
 button[type="submit"]:hover {
-    background-color: #0056b3;
+    background-color: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 a {
     display: block;
     text-align: center;
-    margin-top: 20px;
-    color: #007bff;
+    margin-top: 25px;
+    color: #3498db;
     text-decoration: none;
-    font-size: 14px;
+    font-size: 15px;
+    font-weight: 500;
+    transition: color 0.3s ease;
 }
 
 a:hover {
     text-decoration: underline;
+    color: #2980b9;
+}
+
+.error-message {
+    color: #e74c3c;
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 1.1em;
+    font-weight: 600;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    background-color: rgba(44, 62, 80, 0.9); 
+    padding: 15px 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px); 
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+nav a:hover {
+    background-color: #3498db;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+nav a:active {
+    background-color: #2980b9;
+    transform: translateY(0);
 }

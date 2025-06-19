@@ -3,6 +3,10 @@ session_start();
 require_once "../dao/ProdutoDAO.php";
 require_once "../model/Produto.php";
 
+if (!isset($_SESSION["token"])) {
+    header("Location: index.php");
+    exit();
+}
 
 $dao = new ProdutoDAO();
 $products = $dao->getAll();
@@ -13,7 +17,7 @@ $products = $dao->getAll();
 <head>
     <meta charset="UTF-8">
     <title>Produtos</title>
-    <link rel="stylesheet" href="css/listar.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <h1>Lista de Produtos</h1>
