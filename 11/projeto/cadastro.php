@@ -11,20 +11,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = filter_input(INPUT_POST, 'password');
     $verifyPass = filter_input(INPUT_POST, 'verifyPass');
     
-    if ($password !== $verifyPass || !$name || !$email || !$password || !$verifyPass) {
-        $error = 'Dados inválidos ou senhas não conferem.';
+    if (empty($name) || empty($email) || empty($password) || empty($verifyPass)) {
+        $error = 'Todos os campos são obrigatórios.';
+    } elseif ($password !== $verifyPass) {
+        $error = 'As senhas não conferem.';
+    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $error = 'Formato de e-mail inválido.';
     } else {
 
         if($dao->getByEmail($email)) {
             $error = "Já existe usuário com esse email.";
         } 
         else {
-            $passHash = password_hash($password, PASSWORD_DEFAULT);
             $token = bin2hex(random_bytes(25));
-            $usuario = new Usuario(null, $name, $email, $passHash, $token);
+            $usuario = new Usuario(null, $name, $email, $password, $token);
 
             if($dao->create($usuario)) {
-                header('Location: index.php');
+                header('Location: login.php?status=success&message=' . urlencode('Cadastro realizado com sucesso! Faça login.'));
                 exit();
             } 
             
