@@ -25,7 +25,7 @@ $products = $dao->getAll();
         echo "<p>Não há produtos cadastrados.</p>";
     } ?>
     <br>
-    <a href="criar.php" class="button">Novo Produto</a>
+    <a href="criar.php" class="new-product">Novo Produto</a>
     <div id="mensagem"></div>
     <table>
         <thead>

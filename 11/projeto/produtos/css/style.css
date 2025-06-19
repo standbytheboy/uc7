@@ -1,66 +1,59 @@
-/* Importa a fonte Inter do Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
-/* Estilos globais para o corpo da página */
 body {
     font-family: 'Inter', sans-serif;
     margin: 0;
     padding: 0;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Centraliza conteúdo verticalmente */
-    align-items: center; /* Centraliza conteúdo horizontalmente */
-    min-height: 100vh; /* Garante que o body ocupe a altura total da viewport */
-    background-color: #f0f2f5; /* Um cinza claro suave para o fundo */
-    color: #333; /* Cor de texto padrão */
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f2f5;
+    color: #333;
     line-height: 1.6;
-    overflow-x: hidden; /* Evita rolagem horizontal indesejada */
-    overflow-y: auto; /* Permite rolagem vertical se o conteúdo for maior que a tela */
-    padding-top: 25px; /* Adiciona padding superior para não colar o conteúdo */
-    padding-bottom: 25px; /* Adiciona padding inferior */
-
-    /* Fundo com formas geométricas simples (SVG inline) */
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding-top: 25px;
+    padding-bottom: 25px;
     background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23e8e8e8' fill-opacity='0.5'%3E%3Cpath d='M30 0L60 30L30 60L0 30zM0 30L30 0L60 30L30 60L0 30zM30 0L0 30L30 60L60 30L30 0zM0 30L30 60L60 30L30 0L0 30zM30 60L0 30L30 0L60 30L30 60zM60 30L30 0L0 30L30 60L60 30z'%3E%3C/path%3E%3C/g%3E%3C/svg%3E");
-    background-size: 350px 350px; /* Ajusta o tamanho da repetição do SVG */
+    background-size: 350px 350px;
 }
 
-/* Estilos para títulos h1 */
 h1 {
-    color: #2c3e50; /* Azul escuro principal */
+    color: #2c3e50;
     text-align: center;
-    margin-bottom: 30px; /* Espaçamento abaixo do título */
-    font-size: 2.5em; /* Tamanho maior para o título */
-    font-weight: 700; /* Mais negrito */
+    margin-bottom: 30px;
+    font-size: 2.5em;
+    font-weight: 700;
     letter-spacing: 1px;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.08); /* Sombra suave para profundidade */
+    text-shadow: 0 2px 4px rgba(0,0,0,0.08);
 }
 
-/* Estilo para a saudação do usuário na página principal */
 .user-greeting {
-    color: #3498db; /* Azul mais vibrante para a saudação */
-    font-size: 2em; /* Tamanho maior para a saudação */
+    color: #3498db;
+    font-size: 2em;
     margin-bottom: 35px;
     text-shadow: 0 1px 3px rgba(0,0,0,0.05);
 }
 
 .user-greeting em {
     font-weight: bold;
-    color: #2c3e50; /* Cor escura para o nome, mantendo contraste */
+    color: #2c3e50;
 }
 
-/* Estilos para navegação (usada na index.php) */
 nav {
     display: flex;
     justify-content: center;
-    gap: 20px; /* Espaçamento entre os links da navegação */
-    background-color: rgba(44, 62, 80, 0.95); /* Fundo da navegação semi-transparente e mais escuro */
+    gap: 20px;
+    background-color: rgba(44, 62, 80, 0.95);
     padding: 18px 40px;
     border-radius: 10px;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
-    backdrop-filter: blur(8px); /* Efeito de desfoque mais forte */
-    -webkit-backdrop-filter: blur(8px); /* Compatibilidade Safari */
-    margin-top: 40px; /* Espaço para separar do conteúdo acima */
-    flex-wrap: wrap; /* Permite que os links quebrem linha em telas pequenas */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    margin-top: 40px;
+    flex-wrap: wrap;
 }
 
 nav a {
@@ -72,230 +65,227 @@ nav a {
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.8px;
-    background-color: rgba(255, 255, 255, 0.1); /* Fundo sutil para os links da nav */
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 nav a:hover {
-    background-color: #3498db; /* Azul primário no hover */
-    transform: translateY(-3px); /* Efeito sutil de levantar */
+    background-color: #3498db;
+    transform: translateY(-3px);
     box-shadow: 0 4px 12px rgba(0,0,0,0.35);
 }
 
 nav a:active {
-    background-color: #2980b9; /* Azul mais escuro no clique */
+    background-color: #2980b9;
     transform: translateY(0);
     box-shadow: none;
 }
 
-/* Estilo geral para formulários (cadastro, login, edição) */
 form {
-    background-color: #ffffff; /* Fundo branco limpo */
-    padding: 40px; /* Mais padding para espaçamento */
-    border-radius: 12px; /* Cantos mais arredondados */
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12); /* Sombra mais pronunciada e suave */
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
     width: 90%;
-    max-width: 500px; /* Largura máxima para o formulário */
+    max-width: 500px;
     display: flex;
     flex-direction: column;
-    gap: 18px; /* Espaçamento uniforme entre os elementos do formulário */
-    margin-top: 20px; /* Espaçamento superior para formulários */
-    margin-bottom: 20px; /* Espaçamento inferior para formulários */
+    gap: 18px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
-/* Estilos para labels */
 label {
-    display: block; /* Garante que o label ocupe uma linha inteira */
-    margin-bottom: 4px; /* Ajuste para melhor espaçamento com input */
-    font-weight: 600; /* Mais destaque para o label */
-    color: #374151; /* Cor de texto mais escura */
+    display: block;
+    margin-bottom: 4px;
+    font-weight: 600;
+    color: #374151;
     font-size: 1.05em;
 }
 
-/* Estilos para campos de input (texto, número, email, senha, data) */
 input[type="text"],
 input[type="number"],
 input[type="date"],
 input[type="email"],
 input[type="password"] {
     width: 100%;
-    padding: 12px 15px; /* Mais padding interno */
-    border: 1px solid #d1d5db; /* Borda suave */
-    border-radius: 8px; /* Cantos arredondados */
+    padding: 12px 15px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
     font-size: 1em;
     color: #374151;
-    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05); /* Sombra interna sutil */
-    transition: border-color 0.2s ease, box-shadow 0.2s ease; /* Transição suave no foco */
-    box-sizing: border-box; /* Garante que padding não aumente a largura total */
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    box-sizing: border-box;
 }
 
-/* Estilos de foco para inputs */
 input[type="text"]:focus,
 input[type="number"]:focus,
 input[type="date"]:focus,
 input[type="email"]:focus,
 input[type="password"]:focus {
-    outline: none; /* Remove o outline padrão do navegador */
-    border-color: #3b82f6; /* Borda azul primário no foco */
-    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25); /* Anel de foco azul suave */
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25);
 }
 
-/* Estilo para o checkbox 'Ativo' */
 input[type="checkbox"] {
-    width: auto; /* Permite que o checkbox tenha largura natural */
-    margin-right: 10px; /* Espaçamento à direita do checkbox */
-    transform: scale(1.25); /* Aumenta um pouco mais o tamanho do checkbox */
-    accent-color: #3b82f6; /* Cor do checkbox (Chrome/Edge) */
+    width: auto;
+    margin-right: 10px;
+    transform: scale(1.25);
+    accent-color: #3b82f6;
     cursor: pointer;
 }
 
-/* Estilo para mensagens de erro (geral, pode ser usada em <p> ou div) */
 .error-message {
-    color: #dc2626; /* Vermelho mais forte (Tailwind red-600) */
-    background-color: #fef2f2; /* Fundo vermelho bem claro (Tailwind red-50) */
+    color: #dc2626;
+    background-color: #fef2f2;
     padding: 12px;
     border-radius: 8px;
-    border: 1px solid #fca5a5; /* Borda mais suave (Tailwind red-300) */
+    border: 1px solid #fca5a5;
     margin-top: 15px;
     text-align: center;
     font-size: 0.95em;
     font-weight: 500;
 }
 
-/* Estilos para botões de submit (geral, usado em formulários) */
 button[type="submit"] {
     width: 100%;
     padding: 15px;
-    background-color: #2563eb; /* Azul primário (Tailwind blue-600) */
+    background-color: #2563eb;
     color: white;
     font-weight: 700;
     border: none;
     border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra mais sutil */
-    margin-top: 15px; /* Mais espaço acima do botão */
-    font-size: 1.15em; /* Tamanho da fonte ligeiramente maior */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 15px;
+    font-size: 1.15em;
     letter-spacing: 0.5px;
 }
 
 button[type="submit"]:hover {
-    background-color: #1d4ed8; /* Azul mais escuro no hover (Tailwind blue-700) */
-    transform: translateY(-3px); /* Efeito de levantar mais pronunciado */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Sombra mais forte no hover */
+    background-color: #1d4ed8;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
 }
 
-/* Estilo para links genéricos (ex: "Não tem conta?", "Cancelar") */
 a {
-    display: block; /* Ocupa a largura total */
+    display: block;
     text-align: center;
-    margin-top: 25px; /* Mais espaço acima do link */
-    color: #3498db; /* Azul primário para links */
+    margin-top: 25px;
+    color: #3498db;
     text-decoration: none;
     font-weight: 500;
     transition: color 0.2s ease;
-    padding: 5px; /* Adiciona padding para facilitar o clique */
+    padding: 5px;
     font-size: 0.95em;
 }
 
 a:hover {
-    color: #2980b9; /* Azul mais escuro no hover */
-    text-decoration: underline; /* Sublinha no hover */
+    color: #2980b9;
+    text-decoration: underline;
 }
 
-/* Estilo geral para botões de ação (usados na listagem, ex: "Adicionar Produto") */
-.button-action { /* Nova classe genérica para botões de ação fora da tabela */
-    display: inline-flex; /* Usa flex para alinhar ícones se houver */
-    align-items: center; /* Centraliza verticalmente o conteúdo */
-    justify-content: center; /* Centraliza horizontalmente o conteúdo */
-    padding: 12px 25px; /* Padding ajustado */
-    margin-bottom: 25px; /* Espaçamento abaixo dos botões superiores */
-    border-radius: 8px; /* Cantos arredondados */
+.button-action {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 25px;
+    margin-bottom: 25px;
+    border-radius: 8px;
     text-decoration: none;
-    font-weight: 600; /* Mais destaque para o texto do botão */
+    font-weight: 600;
     transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra mais sutil */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     font-size: 1em;
-    min-width: 120px; /* Largura mínima para consistência */
+    min-width: 120px;
 }
 
-/* Botão de "Adicionar Novo" (verde) */
 .button-add {
-    background-color: #28a745; /* Verde para adição */
+    background-color: #28a745;
     color: white;
 }
 .button-add:hover {
-    background-color: #218838; /* Verde mais escuro no hover */
-    transform: translateY(-2px); /* Efeito de levantar */
+    background-color: #218838;
+    transform: translateY(-2px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
-/* Estilo da tabela de dados */
 table {
-    width: 95%; /* Ocupa mais largura */
-    max-width: 1200px; /* Largura máxima para tabelas grandes */
+    width: 95%;
+    max-width: 1200px;
     border-collapse: collapse;
     margin-top: 25px;
-    background-color: #ffffff; /* Fundo branco limpo */
-    border-radius: 12px; /* Cantos mais arredondados */
-    overflow: hidden; /* Garante que o border-radius funcione */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Sombra mais pronunciada e suave */
-    border: 1px solid #e0e0e0; /* Borda suave */
-    margin-bottom: 25px; /* Espaçamento para o conteúdo abaixo */
+    background-color: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e0e0e0;
+    margin-bottom: 25px;
 }
 
-/* Cabeçalho da tabela */
 th, td {
-    padding: 14px 18px; /* Mais padding para espaçamento */
+    padding: 14px 18px;
     text-align: left;
-    border-bottom: 1px solid #edf2f7; /* Linha divisória mais suave */
+    border-bottom: 1px solid #edf2f7;
     color: #333;
 }
 
 thead th {
-    background-color: #3498db; /* Azul primário para o cabeçalho */
+    background-color: #3498db;
     color: white;
-    font-weight: 700; /* Negrito */
+    font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.5px;
     font-size: 0.9em;
 }
 
-/* Linhas pares da tabela */
 tbody tr:nth-child(even) {
-    background-color: #f8f9fa; /* Cinza muito claro */
+    background-color: #f8f9fa;
 }
 
-/* Efeito hover nas linhas da tabela */
 tbody tr:hover {
-    background-color: #eaf3fa; /* Azul claro suave no hover */
+    background-color: #eaf3fa;
     cursor: pointer;
 }
 
-/* Botões de Ação na Tabela (editar, deletar) */
-.table-button { /* Classe genérica para botões dentro da tabela */
+.table-button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 8px 12px; /* Padding menor para botões dentro da tabela */
+    padding: 8px 12px;
     border-radius: 6px;
     text-decoration: none;
     font-weight: 600;
     font-size: 0.85em;
     transition: background-color 0.2s ease, transform 0.1s ease;
-    box-shadow: none; /* Sem sombra nos botões da tabela por padrão */
+    box-shadow: none;
 }
 
-.button-edit { /* Botão de editar (azul) */
+.new-product {
+    color: #bee5eb;
+    background-color: #2980b9;
+    padding: 15px;
+    border-radius: .5rem;
+}
+
+.new-product:hover {
+    color: #bee5eb;
+    background-color: #374151;
+}
+
+.button-edit {
     background-color: #3498db;
     color: white;
-    margin-right: 8px; /* Espaçamento entre botões */
+    margin-right: 8px;
 }
 .button-edit:hover {
     background-color: #2980b9;
     transform: translateY(-1px);
 }
 
-.button-delete { /* Botão de deletar (vermelho) */
+.button-delete {
     background-color: #e74c3c;
     color: white;
 }
@@ -304,13 +294,12 @@ tbody tr:hover {
     transform: translateY(-1px);
 }
 
-/* Estilo para a mensagem (ex: sucesso, erro) - pode ser usado em #mensagem ou .message-box */
-.message-box { /* Nova classe genérica para mensagens */
-    margin-bottom: 25px; /* Espaçamento abaixo da mensagem */
+.message-box {
+    margin-bottom: 25px;
     padding: 15px;
     border-radius: 8px;
-    background-color: #d1ecf1; /* Azul claro suave (para mensagens de informação/sucesso) */
-    color: #0c5460; /* Azul escuro para o texto */
+    background-color: #d1ecf1;
+    color: #0c5460;
     border: 1px solid #bee5eb;
     text-align: center;
     font-size: 1em;
@@ -318,9 +307,8 @@ tbody tr:hover {
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
     width: 90%;
     max-width: 600px;
-    display: none; /* Escondido por padrão, pode ser mostrado via JS */
+    display: none;
 }
-/* Você pode ter variantes para tipos de mensagem: */
 .message-box.success {
     background-color: #d4edda;
     color: #155724;
@@ -332,7 +320,6 @@ tbody tr:hover {
     border-color: #f5c6cb;
 }
 
-/* Responsividade Geral */
 @media (max-width: 768px) {
     body {
         padding: 15px;
@@ -410,13 +397,12 @@ tbody tr:hover {
         gap: 10px;
     }
     nav a {
-        width: calc(100% - 20px); /* Ajusta a largura para dispositivos móveis */
+        width: calc(100% - 20px);
         text-align: center;
     }
     form {
         padding: 20px;
     }
-    /* Responsividade da tabela para "cards" */
     table, thead, tbody, th, td, tr {
         display: block;
     }
@@ -457,14 +443,7 @@ tbody tr:hover {
         border-right: 1px solid #e0e0e0;
         box-sizing: border-box;
     }
-    /* Labels para as células (personalize de acordo com suas colunas de listar.php) */
-    /* Exemplo:
-    td:nth-of-type(1):before { content: "ID"; }
-    td:nth-of-type(2):before { content: "Nome do Produto"; }
-    td:nth-of-type(3):before { content: "Preço"; }
-    */
 
-    /* Botões de ação na tabela em layout responsivo */
     .table-button {
         width: calc(50% - 4px);
         margin-bottom: 0;
