@@ -25,7 +25,6 @@ $products = $dao->getAll();
         echo "<p>Não há produtos cadastrados.</p>";
     } ?>
     <br>
-    <a href="criar.php" class="new-product">Novo Produto</a>
     <div id="mensagem"></div>
     <table>
         <thead>
@@ -40,7 +39,6 @@ $products = $dao->getAll();
         </thead>
         <tbody id="tabelaProdutos">
             <?php
-            // Itera sobre cada objeto Produto no array $products
             foreach ($products as $produto) {
             ?>
                 <tr>
@@ -52,7 +50,7 @@ $products = $dao->getAll();
                     <td>
                         <!-- Links para ações de editar e excluir -->
                         <a href="criar.php?id=<?php echo htmlspecialchars($produto->getId()); ?>" class="edit-button">Editar</a>
-                        <a href="excluir.php?id=<?php echo htmlspecialchars($produto->getId()); ?>" class="delete-button" onclick="return confirm('Tem certeza que deseja excluir este produto?');">Excluir</a>
+                        <a href="excluir.php?id=<?php echo htmlspecialchars($produto->getId()); ?>" class="delete-button mg-top" onclick="return confirm('Tem certeza que deseja excluir este produto?');">Excluir</a>
                     </td>
                 </tr>
             <?php
@@ -60,10 +58,7 @@ $products = $dao->getAll();
             ?>
         </tbody>
     </table>
-    
-    <a href="../index.php">Voltar</a>
-
-
-    
+    <a href="criar.php" class="new-product">Novo Produto</a>
+    <a href="../index.php" class="mg-top">Voltar</a>
 </body>
 </html>

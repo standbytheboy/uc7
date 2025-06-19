@@ -67,19 +67,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <?php endif; ?>
 
         <label>Nome:</label>
-        <input type="text" name="name" required value="<?= $product ? $product->getNome() : '' ?>"><br>
+        <input type="text" name="name" required value="<?= $product ? $product->getNome() : '' ?>">
 
         <label>Preço:</label>
-        <input type="number" name="price" step="0.01" required value="<?= $product ? $product->getPreco() : '' ?>"><br>
+        <input type="number" name="price" step="0.01" required value="<?= $product ? $product->getPreco() : '' ?>">
 
+        <div class="flex">
         <label>Ativo:</label>
-        <input type="checkbox" name="ativo" value="1" <?= $product && $product->getAtivo() ? 'checked' : '' ?>><br>
+        <input type="checkbox" name="ativo" value="1" <?= $product && $product->getAtivo() ? 'checked' : '' ?>>
+        </div>
 
         <label>Data de Cadastro:</label>
-        <input type="date" name="cadastro" required value="<?= $product ? $product->getDataDeCadastro() : '' ?>"><br>
+        <input type="date" name="cadastro" required value="<?= $product ? $product->getDataDeCadastro() : '' ?>">
 
         <label>Data de Validade:</label>
-        <input type="date" name="validade" value="<?= $product ? $product->getDataDeValidade() : '' ?>"><br>
+        <input type="date" name="validade" value="<?= $product ? $product->getDataDeValidade() : '' ?>">
 
         <?php if (!empty($error)): ?>
             <p style='color: red'><?= htmlspecialchars($error) ?></p>
