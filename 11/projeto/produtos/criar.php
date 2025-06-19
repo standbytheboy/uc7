@@ -18,12 +18,12 @@ if (isset($_GET['id'])) {
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $id = filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT);
     $name = filter_input(INPUT_POST, 'name');
-    $price = filter_input(INPUT_POST, 'price');
-    $ativo = filter_input(INPUT_POST, 'ativo', FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE);
+    $price = filter_input(INPUT_POST, 'price', FILTER_VALIDATE_FLOAT);
+    $ativo = isset($_POST['ativo']) ? 1 : 0; 
     $cadastro = filter_input(INPUT_POST, 'cadastro');
     $validade = filter_input(INPUT_POST, 'validade');
     
-    if (!$name || $price === false || !$cadastro || !$validade || !$ativo ) {
+    if (!$name || $price === false || !$cadastro || !$validade) {
         $error = 'Dados inválidos.';
     } else {
         $product = new Produto($id, $name, $price, $ativo, $cadastro, $validade);
