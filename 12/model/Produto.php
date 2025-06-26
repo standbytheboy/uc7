@@ -1,4 +1,6 @@
 <?php
+
+require_once __DIR__ . 'Fornecedor.php';
 class Produto implements JsonSerializable
 {
     private ?int $id;
@@ -8,7 +10,9 @@ class Produto implements JsonSerializable
     private string $dataDeCadastro; // DATE no banco, string 'YYYY-MM-DD' no PHP
     private ?string $dataDeValidade; // Pode ser NULL
 
-    public function __construct(?int $id, string $nome, float $preco, bool $ativo, string $dataDeCadastro, ?string $dataDeValidade)
+    private ?Fornecedor $fornecedor;
+
+    public function __construct(?int $id, string $nome, float $preco, bool $ativo, string $dataDeCadastro, ?string $dataDeValidade, ?Fornecedor $fornecedor)
     {
         $this->id = $id;
         $this->nome = $nome;
@@ -16,6 +20,7 @@ class Produto implements JsonSerializable
         $this->ativo = $ativo;
         $this->dataDeCadastro = $dataDeCadastro;
         $this->dataDeValidade = $dataDeValidade;
+        $this->fornecedor = $fornecedor;
     }
 
     // Getters
@@ -25,6 +30,7 @@ class Produto implements JsonSerializable
     public function getAtivo(): bool { return $this->ativo; }
     public function getDataDeCadastro(): string { return $this->dataDeCadastro; }
     public function getDataDeValidade(): ?string { return $this->dataDeValidade; }
+    public function getFornecedor(): ?Fornecedor { return $this->fornecedor; }
 
     public function jsonSerialize(): array
     {
