@@ -30,4 +30,13 @@ ADD COLUMN fornecedor_id INT NULL,
 ADD CONSTRAINT fk_produto_fornecedor
     FOREIGN KEY (fornecedor_id)
     REFERENCES fornecedores(id) ON DELETE SET NULL;
- 
+
+
+SELECT p.*, 
+f.id AS fornecedor_id,
+f.nome AS fornecedor_nome,
+f.cnpj AS fornecedor_cnpj,
+f.contato AS fornecedor_contato
+FROM produtos p 
+LEFT JOIN fornecedores f
+ON p.fornecedor_id = f.id;

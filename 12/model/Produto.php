@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . 'Fornecedor.php';
+require_once 'Fornecedor.php';
 class Produto implements JsonSerializable
 {
     private ?int $id;

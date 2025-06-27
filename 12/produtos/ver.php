@@ -14,3 +14,4 @@ if (!$produto) {
 <p>Preço: R$ <?= number_format($produto->getPreco(), 2, ',', '.') ?></p>
 <p>Ativo: <?= $produto->getAtivo() ? 'Sim' : 'Não' ?></p>
 <p>Validade: <?= $produto->getDataDeValidade() ?: 'Sem validade' ?></p>
+<p>Fornecedor: <?= $produto->getFornecedor() ? $produto->getFornecedor()->getNome() : 'Sem Fornecedor' ?></p>
