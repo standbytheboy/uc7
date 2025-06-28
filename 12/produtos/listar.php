@@ -16,7 +16,7 @@ $user = getLoggedUser();
         
         <?php if($user): ?>
             | <a href="./editar.php?id=<?= $p->getId() ?>">Editar</a>
-            | <a href="./excluir.php?id=<?= $p->getId() ?>" onclick="return confirm('Tem certeza?')">Excluir</a>
+            | <a href="./excluir.php?id=<?= $p->getId() ?>" onclick="return confirm('Tem certeza que deseja excluir esse produto?')">Excluir</a>
         <?php endif; ?>
     </p>
 

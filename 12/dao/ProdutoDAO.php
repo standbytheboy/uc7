@@ -115,17 +115,21 @@ class ProdutoDAO
     {
         $sql = "UPDATE produtos 
                 SET nome = :nome, preco = :preco, ativo = :ativo, 
-                    dataDeCadastro = :dataDeCadastro, dataDeValidade = :dataDeValidade 
+                    dataDeCadastro = :dataDeCadastro, dataDeValidade = :dataDeValidade,
+                    fornecedor_id = :fornecedor_id
                 WHERE id = :id";
         $stmt = $this->db->prepare($sql);
-        
+
+        $fornecedorId = $produto->getFornecedor() ? $produto->getFornecedor()->getId() : null;
+
         return $stmt->execute([
             ':id' => $produto->getId(),
             ':nome' => $produto->getNome(),
             ':preco' => $produto->getPreco(),
             ':ativo' => $produto->getAtivo() ? 1 : 0,
             ':dataDeCadastro' => $produto->getDataDeCadastro(),
-            ':dataDeValidade' => $produto->getDataDeValidade()
+            ':dataDeValidade' => $produto->getDataDeValidade(),
+            ':fornecedor_id' => $fornecedorId
         ]);
     }
 
